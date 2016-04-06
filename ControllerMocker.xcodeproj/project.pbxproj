@@ -10,6 +10,9 @@
 		65A07C781CB5C28000803113 /* ControllerMocker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A07C771CB5C28000803113 /* ControllerMocker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65A07C7F1CB5C28000803113 /* ControllerMocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A07C741CB5C28000803113 /* ControllerMocker.framework */; };
 		65A07C841CB5C28000803113 /* ControllerMockerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C831CB5C28000803113 /* ControllerMockerTests.swift */; };
+		65A07C8F1CB5C2BE00803113 /* ControllerMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C8E1CB5C2BD00803113 /* ControllerMocker.swift */; };
+		65A07C911CB5C2E200803113 /* ControllerMockerStepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C901CB5C2E200803113 /* ControllerMockerStepperButton.swift */; };
+		65A07C941CB5C31600803113 /* AppDelegateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C931CB5C31600803113 /* AppDelegateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		65A07C7E1CB5C28000803113 /* ControllerMockerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ControllerMockerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A07C831CB5C28000803113 /* ControllerMockerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerMockerTests.swift; sourceTree = "<group>"; };
 		65A07C851CB5C28000803113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65A07C8E1CB5C2BD00803113 /* ControllerMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerMocker.swift; sourceTree = "<group>"; };
+		65A07C901CB5C2E200803113 /* ControllerMockerStepperButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerMockerStepperButton.swift; sourceTree = "<group>"; };
+		65A07C931CB5C31600803113 /* AppDelegateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +77,11 @@
 		65A07C761CB5C28000803113 /* ControllerMocker */ = {
 			isa = PBXGroup;
 			children = (
+				65A07C921CB5C2F500803113 /* Extensions */,
 				65A07C771CB5C28000803113 /* ControllerMocker.h */,
 				65A07C791CB5C28000803113 /* Info.plist */,
+				65A07C8E1CB5C2BD00803113 /* ControllerMocker.swift */,
+				65A07C901CB5C2E200803113 /* ControllerMockerStepperButton.swift */,
 			);
 			path = ControllerMocker;
 			sourceTree = "<group>";
@@ -84,6 +93,14 @@
 				65A07C851CB5C28000803113 /* Info.plist */,
 			);
 			path = ControllerMockerTests;
+			sourceTree = "<group>";
+		};
+		65A07C921CB5C2F500803113 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				65A07C931CB5C31600803113 /* AppDelegateExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +213,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A07C911CB5C2E200803113 /* ControllerMockerStepperButton.swift in Sources */,
+				65A07C8F1CB5C2BE00803113 /* ControllerMocker.swift in Sources */,
+				65A07C941CB5C31600803113 /* AppDelegateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +330,7 @@
 		65A07C891CB5C28000803113 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +341,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bumola.ControllerMocker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		65A07C8A1CB5C28000803113 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
