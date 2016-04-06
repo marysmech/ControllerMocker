@@ -26,31 +26,43 @@ public class ControllerMocker {
     }
     
     
-    public func mockControllers(controllers: [UIViewController], useStepper: Bool = true, delay: NSTimeInterval = 5) {
+    public func mockControllers(controllers: [UIViewController]) {
         self.controllers = controllers
+        self.numberOfPusherControllers = 0
         
-        if useStepper {
-            print("USE STEPPER")
-            self.uiTestButton = ControllerMockerStepperButton(keyWindow: currentWindow)
-            self.uiTestButton?.controllerMockerDelegate = self
-            self.uiTestButton?.showHideNextStepButton()
-            currentWindow.addSubview(self.uiTestButton!)
-        }
+        self.uiTestButton = ControllerMockerStepperButton(keyWindow: currentWindow)
+        self.uiTestButton?.controllerMockerDelegate = self
+        self.uiTestButton?.showHideNextStepButton()
+        currentWindow.addSubview(self.uiTestButton!)
         
         self.presentGivenViewController()
         
         
-        //        mainController.navigationController?.pushViewController(controllers.first!, animated: true)
+//                mainController.navigationController?.pushViewController(controllers.first!, animated: true)
+//        
+//                mainController.pushViewController(controllers.first, animated: true)
+//        
+//                var counter: NSTimeInterval = 0
+//                for controller in controllers {
+//                    NSTimer.schedule(delay: (counter * delay) as NSTimeInterval, handler: { (timer) -> Void in
+//                        navigationController.pushViewController(controller, animated: true)
+//                    })
+//                    counter++
+//                }
+    }
+    
+    public func mockControllersWithTimer(controllers: [UIViewController], delay: NSTimeInterval = 5) {
+        self.controllers = controllers
+        self.numberOfPusherControllers = 0
         
-        //        mainController.pushViewController(controllers.first, animated: true)
-        
-        //        var counter: NSTimeInterval = 0
-        //        for controller in controllers {
-        //            NSTimer.schedule(delay: (counter * delay) as NSTimeInterval, handler: { (timer) -> Void in
-        //                navigationController.pushViewController(controller, animated: true)
-        //            })
-        //            counter++
-        //        }
+        var counter: NSTimeInterval = 0
+        for _ in controllers {
+            NSTimer.schedule(delay: (counter * delay) as NSTimeInterval, handler: { (timer) -> Void in
+                self.presentGivenViewController()
+            })
+            counter++
+        }
+
     }
     
     
