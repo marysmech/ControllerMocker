@@ -68,10 +68,6 @@ public class ControllerMocker {
     
     func showNextController(sender: ControllerMockerStepperButton) {
         print("####tapped!!!")
-        print(sender)
-        
-        // dismiss previous modal
-        self.mainController.dismissViewControllerAnimated(true, completion: nil)
         
         // present another controller in modal
         self.presentGivenViewController(sender)
@@ -83,6 +79,10 @@ public class ControllerMocker {
         if self.numberOfPusherControllers < self.controllers.count {
             let controller = self.controllers[self.numberOfPusherControllers]
             
+            // dismiss previous modal
+            self.mainController.dismissViewControllerAnimated(true, completion: nil)
+            
+            // present new controller in modal
             self.mainController.presentViewController(controller, animated: true) {
                 sender?.showHideNextStepButton()
             }
