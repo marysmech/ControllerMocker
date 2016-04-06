@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIApplicationDelegate {
-    static func testViewControllers(window: UIWindow, controllers: [UIViewController], useStepper: Bool = true, delay: NSTimeInterval = 5) {
+    public static func testViewControllers(window: UIWindow, controllers: [UIViewController], useStepper: Bool = true, delay: NSTimeInterval = 5) {
         
         let controllerMocker = ControllerMocker(window: window)
         controllerMocker.mockControllers(controllers, useStepper: useStepper, delay: delay)
