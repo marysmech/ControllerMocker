@@ -13,6 +13,7 @@
 		65A07C8F1CB5C2BE00803113 /* ControllerMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C8E1CB5C2BD00803113 /* ControllerMocker.swift */; };
 		65A07C911CB5C2E200803113 /* ControllerMockerStepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C901CB5C2E200803113 /* ControllerMockerStepperButton.swift */; };
 		65A07C941CB5C31600803113 /* AppDelegateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C931CB5C31600803113 /* AppDelegateExtensions.swift */; };
+		65A07C981CB5D29D00803113 /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C971CB5D29D00803113 /* NSTimerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		65A07C8E1CB5C2BD00803113 /* ControllerMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerMocker.swift; sourceTree = "<group>"; };
 		65A07C901CB5C2E200803113 /* ControllerMockerStepperButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerMockerStepperButton.swift; sourceTree = "<group>"; };
 		65A07C931CB5C31600803113 /* AppDelegateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateExtensions.swift; sourceTree = "<group>"; };
+		65A07C971CB5D29D00803113 /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				65A07C931CB5C31600803113 /* AppDelegateExtensions.swift */,
+				65A07C971CB5D29D00803113 /* NSTimerExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A07C981CB5D29D00803113 /* NSTimerExtensions.swift in Sources */,
 				65A07C911CB5C2E200803113 /* ControllerMockerStepperButton.swift in Sources */,
 				65A07C8F1CB5C2BE00803113 /* ControllerMocker.swift in Sources */,
 				65A07C941CB5C31600803113 /* AppDelegateExtensions.swift in Sources */,
