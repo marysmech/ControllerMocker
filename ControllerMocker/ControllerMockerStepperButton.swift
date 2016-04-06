@@ -56,7 +56,6 @@ class ControllerMockerStepperButton: UIButton {
     }
     
     override func layoutSubviews() {
-        print("LAYOUT!!!")
         super.layoutSubviews()
         
         if UIDevice.currentDevice().orientation != self.orientation {
@@ -65,7 +64,6 @@ class ControllerMockerStepperButton: UIButton {
     }
     
     private func updateButtonPositionAfterOrientationChange() {
-        print("UIDEVICE")
         self.orientation = UIDevice.currentDevice().orientation
         
         let rightX = (superview!.frame.width) - self.buttonProperties.visibleOffset
@@ -78,7 +76,6 @@ class ControllerMockerStepperButton: UIButton {
     
     
     internal func showHideNextStepButton() {
-        print("DOUBLE!!")
         let moveOffsetX = self.frame.width - self.buttonProperties.visibleOffset
         
         print(buttonIsVisible)
@@ -93,14 +90,12 @@ class ControllerMockerStepperButton: UIButton {
     
     
     private func hideButton(moveOffsetX: CGFloat) {
-        print("HIDE")
         UIView.animateWithDuration(0.3,
             animations: { _ in
                 self.center.x = self.center.x + moveOffsetX
                 self.alpha = self.buttonProperties.clickAlpha
             },
             completion: { finished in
-                print("COMPET")
                 self.buttonIsVisible = false
             }
         )
@@ -108,7 +103,6 @@ class ControllerMockerStepperButton: UIButton {
     
     
     private func showButton(moveOffsetX: CGFloat) {
-        print("SHOW")
         UIView.animateWithDuration(0.3,
             animations: { _ in
                 self.center.x = self.center.x - moveOffsetX
