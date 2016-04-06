@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class ControllerMocker {
+public class ControllerMocker {
     
     let currentWindow: UIWindow
     let mainController: UIViewController
@@ -54,7 +54,7 @@ class ControllerMocker {
     }
     
     
-    public func showNextController(sender: ControllerMockerStepperButton) {
+    func showNextController(sender: ControllerMockerStepperButton) {
         print("####tapped!!!")
         print(sender)
         
