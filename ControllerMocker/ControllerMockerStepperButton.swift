@@ -66,7 +66,7 @@ class ControllerMockerStepperButton: UIButton {
     private func updateButtonPositionAfterOrientationChange() {
         self.orientation = UIDevice.currentDevice().orientation
         
-        let rightX = (superview!.frame.width) - self.buttonProperties.visibleOffset
+        let rightX = (superview!.frame.width) - self.buttonProperties.width
         let centerY = ((superview!.frame.height) - (self.buttonProperties.height/2))/2
         self.center.x = rightX + (self.frame.width/2)
         self.center.y = centerY
