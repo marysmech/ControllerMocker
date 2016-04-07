@@ -36,20 +36,8 @@ public class ControllerMocker {
         currentWindow.addSubview(self.uiTestButton!)
         
         self.presentGivenViewController()
-        
-        
-//                mainController.navigationController?.pushViewController(controllers.first!, animated: true)
-//        
-//                mainController.pushViewController(controllers.first, animated: true)
-//        
-//                var counter: NSTimeInterval = 0
-//                for controller in controllers {
-//                    NSTimer.schedule(delay: (counter * delay) as NSTimeInterval, handler: { (timer) -> Void in
-//                        navigationController.pushViewController(controller, animated: true)
-//                    })
-//                    counter++
-//                }
     }
+    
     
     public func mockControllersWithTimer(controllers: [UIViewController], delay: NSTimeInterval = 5) {
         self.controllers = controllers
@@ -62,7 +50,6 @@ public class ControllerMocker {
             })
             counter++
         }
-
     }
     
     
