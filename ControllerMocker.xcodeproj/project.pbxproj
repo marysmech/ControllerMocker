@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		658B3E411CB858BD002B37F8 /* dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 658B3E401CB858BD002B37F8 /* dummy.png */; };
+		658B3E431CB858D8002B37F8 /* ControllerMockerDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B3E421CB858D8002B37F8 /* ControllerMockerDummy.swift */; };
 		65A07C781CB5C28000803113 /* ControllerMocker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A07C771CB5C28000803113 /* ControllerMocker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65A07C7F1CB5C28000803113 /* ControllerMocker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A07C741CB5C28000803113 /* ControllerMocker.framework */; };
 		65A07C841CB5C28000803113 /* ControllerMockerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C831CB5C28000803113 /* ControllerMockerTests.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		658B3E401CB858BD002B37F8 /* dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy.png; sourceTree = "<group>"; };
+		658B3E421CB858D8002B37F8 /* ControllerMockerDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerMockerDummy.swift; sourceTree = "<group>"; };
 		65A07C741CB5C28000803113 /* ControllerMocker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ControllerMocker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A07C771CB5C28000803113 /* ControllerMocker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerMocker.h; sourceTree = "<group>"; };
 		65A07C791CB5C28000803113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		658B3E3F1CB858A5002B37F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				658B3E401CB858BD002B37F8 /* dummy.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		65A07C6A1CB5C28000803113 = {
 			isa = PBXGroup;
 			children = (
@@ -79,11 +91,13 @@
 		65A07C761CB5C28000803113 /* ControllerMocker */ = {
 			isa = PBXGroup;
 			children = (
+				658B3E3F1CB858A5002B37F8 /* Resources */,
 				65A07C921CB5C2F500803113 /* Extensions */,
 				65A07C771CB5C28000803113 /* ControllerMocker.h */,
 				65A07C791CB5C28000803113 /* Info.plist */,
 				65A07C8E1CB5C2BD00803113 /* ControllerMocker.swift */,
 				65A07C901CB5C2E200803113 /* ControllerMockerStepperButton.swift */,
+				658B3E421CB858D8002B37F8 /* ControllerMockerDummy.swift */,
 			);
 			path = ControllerMocker;
 			sourceTree = "<group>";
@@ -199,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658B3E411CB858BD002B37F8 /* dummy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +235,7 @@
 				65A07C911CB5C2E200803113 /* ControllerMockerStepperButton.swift in Sources */,
 				65A07C8F1CB5C2BE00803113 /* ControllerMocker.swift in Sources */,
 				65A07C941CB5C31600803113 /* AppDelegateExtensions.swift in Sources */,
+				658B3E431CB858D8002B37F8 /* ControllerMockerDummy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +421,7 @@
 				65A07C8A1CB5C28000803113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65A07C8B1CB5C28000803113 /* Build configuration list for PBXNativeTarget "ControllerMockerTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +430,7 @@
 				65A07C8D1CB5C28000803113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
