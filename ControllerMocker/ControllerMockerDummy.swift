@@ -9,7 +9,7 @@
 import Foundation
 
 
-class ControllerMockerDummy {
+public class ControllerMockerDummy {
     public static func getUrlToDummyImage() -> String {
         return ControllerMockerDummy().getPathDummyImageOrDummyUrl()
     }
