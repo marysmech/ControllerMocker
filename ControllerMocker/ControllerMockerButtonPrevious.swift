@@ -19,7 +19,7 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
             button = buttonPosition
         }
         else {
-            let leftX = 0 - self.buttonProperties.visibleOffset
+            let leftX = 0 - (self.buttonProperties.width + self.buttonProperties.visibleOffset)
             let centerY = ((keyWindow?.frame.height)! - (self.buttonProperties.height/2))/2
             button = CGRect(x: leftX, y: centerY, width: self.buttonProperties.width, height: self.buttonProperties.height)
         }
