@@ -67,31 +67,12 @@ public class ControllerMocker {
     }
     
     func showPreviousController(sender: ControllerMockerButton) {
-        // TODO
-        
-        
         print("####tapped PREV!!!")
         
         // present another controller in modal
         self.presentPreviousViewController(sender)
     }
     
-    
-//    private func presentGivenViewController(sender: ControllerMockerButton? = nil) {
-//        
-//        if self.numberOfPusherControllers < self.controllers.count {
-//            let controller = self.controllers[self.numberOfPusherControllers]
-//            
-//            // dismiss previous modal
-//            self.mainController.dismissViewControllerAnimated(true, completion: nil)
-//            
-//            // present new controller in modal
-//            self.mainController.presentViewController(controller, animated: true) {
-//                sender?.showHideNextStepButton()
-//            }
-//            self.numberOfPusherControllers++
-//        }
-//    }
     
     private func presentNextViewController(sender: ControllerMockerButton? = nil) {
         
@@ -106,13 +87,7 @@ public class ControllerMocker {
     
     
     private func presentPreviousViewController(sender: ControllerMockerButton? = nil) {
-        
-        print("NUM OF PUSHED: \(self.numberOfPusherControllers)")
-        
         if self.numberOfPusherControllers > 1 {
-            print("INDEX TO PUSH: \(self.numberOfPusherControllers - 2)")
-            
-            
             let controller = self.controllers[(self.numberOfPusherControllers - 2)]
             
             self.presentGivenViewController(sender, controller: controller)
