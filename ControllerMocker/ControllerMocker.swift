@@ -109,7 +109,7 @@ public class ControllerMocker {
         
         print("NUM OF PUSHED: \(self.numberOfPusherControllers)")
         
-        if self.numberOfPusherControllers < 1 {
+        if self.numberOfPusherControllers > 1 {
             print("INDEX TO PUSH: \(self.numberOfPusherControllers - 2)")
             
             
