@@ -16,6 +16,7 @@
 		65A07C911CB5C2E200803113 /* ControllerMockerStepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C901CB5C2E200803113 /* ControllerMockerStepperButton.swift */; };
 		65A07C941CB5C31600803113 /* AppDelegateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C931CB5C31600803113 /* AppDelegateExtensions.swift */; };
 		65A07C981CB5D29D00803113 /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A07C971CB5D29D00803113 /* NSTimerExtensions.swift */; };
+		65A6100D1CC7EDF80022627D /* ControllerMockerPreviousButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6100C1CC7EDF80022627D /* ControllerMockerPreviousButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		65A07C901CB5C2E200803113 /* ControllerMockerStepperButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerMockerStepperButton.swift; sourceTree = "<group>"; };
 		65A07C931CB5C31600803113 /* AppDelegateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateExtensions.swift; sourceTree = "<group>"; };
 		65A07C971CB5D29D00803113 /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerExtensions.swift; sourceTree = "<group>"; };
+		65A6100C1CC7EDF80022627D /* ControllerMockerPreviousButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerMockerPreviousButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				65A07C8E1CB5C2BD00803113 /* ControllerMocker.swift */,
 				65A07C901CB5C2E200803113 /* ControllerMockerStepperButton.swift */,
 				658B3E421CB858D8002B37F8 /* ControllerMockerDummy.swift */,
+				65A6100C1CC7EDF80022627D /* ControllerMockerPreviousButton.swift */,
 			);
 			path = ControllerMocker;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				65A07C981CB5D29D00803113 /* NSTimerExtensions.swift in Sources */,
 				65A07C911CB5C2E200803113 /* ControllerMockerStepperButton.swift in Sources */,
 				65A07C8F1CB5C2BE00803113 /* ControllerMocker.swift in Sources */,
+				65A6100D1CC7EDF80022627D /* ControllerMockerPreviousButton.swift in Sources */,
 				65A07C941CB5C31600803113 /* AppDelegateExtensions.swift in Sources */,
 				658B3E431CB858D8002B37F8 /* ControllerMockerDummy.swift in Sources */,
 			);

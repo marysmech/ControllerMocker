@@ -15,6 +15,7 @@ public class ControllerMocker {
     let currentWindow: UIWindow
     let mainController: UIViewController
     var uiTestButton: ControllerMockerStepperButton?
+    var uiTestPreviousButton: ControllerMockerPreviousButton?
     var numberOfPusherControllers: Int = 0
     var controllers = [UIViewController]()
     
@@ -34,6 +35,11 @@ public class ControllerMocker {
         self.uiTestButton?.controllerMockerDelegate = self
         self.uiTestButton?.showHideNextStepButton()
         currentWindow.addSubview(self.uiTestButton!)
+        
+        self.uiTestPreviousButton = ControllerMockerPreviousButton(keyWindow: currentWindow)
+        self.uiTestPreviousButton?.controllerMockerDelegate = self
+        self.uiTestPreviousButton?.showHideNextStepButton()
+        currentWindow.addSubview(self.uiTestPreviousButton!)
         
         self.presentGivenViewController()
     }
