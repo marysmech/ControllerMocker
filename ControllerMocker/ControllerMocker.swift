@@ -38,7 +38,6 @@ public class ControllerMocker {
         
         self.uiTestPreviousButton = ControllerMockerButtonPrevious(keyWindow: currentWindow)
         self.uiTestPreviousButton?.controllerMockerDelegate = self
-        self.uiTestPreviousButton?.showHideNextStepButton()
         currentWindow.addSubview(self.uiTestPreviousButton!)
         
         self.presentNextViewController()
@@ -82,6 +81,10 @@ public class ControllerMocker {
             self.presentGivenViewController(sender, controller: controller)
             
             self.numberOfPusherControllers++
+            self.showPreviousButtonIfNeeded()
+        }
+        else {
+            self.uiTestNextButton?.showHideNextStepButton()
         }
     }
     
@@ -94,6 +97,9 @@ public class ControllerMocker {
             
             self.numberOfPusherControllers--
         }
+        else {
+            self.uiTestPreviousButton?.showHideNextStepButton()
+        }
     }
     
     
@@ -104,6 +110,17 @@ public class ControllerMocker {
         // present new controller in modal
         self.mainController.presentViewController(controller, animated: true) {
             sender?.showHideNextStepButton()
+        }
+    }
+    
+    
+    private func showPreviousButtonIfNeeded() {
+        if self.numberOfPusherControllers > 1 {
+            if let prevButton = self.uiTestPreviousButton {
+                if !prevButton.buttonIsVisible {
+                    prevButton.showHideNextStepButton()
+                }
+            }
         }
     }
     
