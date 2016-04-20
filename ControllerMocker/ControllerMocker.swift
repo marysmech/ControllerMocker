@@ -14,7 +14,8 @@ public class ControllerMocker {
     
     let currentWindow: UIWindow
     let mainController: UIViewController
-    var uiTestButton: ControllerMockerButtonNext?
+    var uiTestNextButton: ControllerMockerButton?
+    var uiTestPreviousButton: ControllerMockerButton?
     var numberOfPusherControllers: Int = 0
     var controllers = [UIViewController]()
     
@@ -30,12 +31,17 @@ public class ControllerMocker {
         self.controllers = controllers
         self.numberOfPusherControllers = 0
         
-        self.uiTestButton = ControllerMockerButtonNext(keyWindow: currentWindow)
-        self.uiTestButton?.controllerMockerDelegate = self
-        self.uiTestButton?.showHideNextStepButton()
-        currentWindow.addSubview(self.uiTestButton!)
+        self.uiTestNextButton = ControllerMockerButtonNext(keyWindow: currentWindow)
+        self.uiTestNextButton?.controllerMockerDelegate = self
+        self.uiTestNextButton?.showHideNextStepButton()
+        currentWindow.addSubview(self.uiTestNextButton!)
         
-        self.presentGivenViewController()
+        self.uiTestPreviousButton = ControllerMockerButtonPrevious(keyWindow: currentWindow)
+        self.uiTestPreviousButton?.controllerMockerDelegate = self
+        self.uiTestPreviousButton?.showHideNextStepButton()
+        currentWindow.addSubview(self.uiTestPreviousButton!)
+        
+        self.presentNextViewController()
     }
     
     
@@ -46,7 +52,7 @@ public class ControllerMocker {
         var counter: NSTimeInterval = 0
         for _ in controllers {
             NSTimer.schedule(delay: (counter * delay) as NSTimeInterval, handler: { (timer) -> Void in
-                self.presentGivenViewController()
+                self.presentNextViewController()
             })
             counter++
         }
@@ -54,27 +60,73 @@ public class ControllerMocker {
     
     
     func showNextController(sender: ControllerMockerButton) {
-        print("####tapped!!!")
+        print("####tapped NEXT!!!")
         
         // present another controller in modal
-        self.presentGivenViewController(sender)
+        self.presentNextViewController(sender)
+    }
+    
+    func showPreviousController(sender: ControllerMockerButton) {
+        // TODO
+        
+        
+        print("####tapped PREV!!!")
+        
+        // present another controller in modal
+        self.presentPreviousViewController(sender)
     }
     
     
-    private func presentGivenViewController(sender: ControllerMockerButton? = nil) {
+//    private func presentGivenViewController(sender: ControllerMockerButton? = nil) {
+//        
+//        if self.numberOfPusherControllers < self.controllers.count {
+//            let controller = self.controllers[self.numberOfPusherControllers]
+//            
+//            // dismiss previous modal
+//            self.mainController.dismissViewControllerAnimated(true, completion: nil)
+//            
+//            // present new controller in modal
+//            self.mainController.presentViewController(controller, animated: true) {
+//                sender?.showHideNextStepButton()
+//            }
+//            self.numberOfPusherControllers++
+//        }
+//    }
+    
+    private func presentNextViewController(sender: ControllerMockerButton? = nil) {
         
         if self.numberOfPusherControllers < self.controllers.count {
             let controller = self.controllers[self.numberOfPusherControllers]
             
-            // dismiss previous modal
-            self.mainController.dismissViewControllerAnimated(true, completion: nil)
+            self.presentGivenViewController(sender, controller: controller)
             
-            // present new controller in modal
-            self.mainController.presentViewController(controller, animated: true) {
-                sender?.showHideNextStepButton()
-            }
             self.numberOfPusherControllers++
         }
     }
+    
+    
+    private func presentPreviousViewController(sender: ControllerMockerButton? = nil) {
+        
+        if self.numberOfPusherControllers < 0 {
+            let controller = self.controllers[(self.numberOfPusherControllers - 1)]
+            
+            self.presentGivenViewController(sender, controller: controller)
+            
+            self.numberOfPusherControllers--
+        }
+    }
+    
+    
+    private func presentGivenViewController(sender: ControllerMockerButton?, controller: UIViewController) {
+        // dismiss previous modal
+        self.mainController.dismissViewControllerAnimated(true, completion: nil)
+        
+        // present new controller in modal
+        self.mainController.presentViewController(controller, animated: true) {
+            sender?.showHideNextStepButton()
+        }
+    }
+    
+    
     
 }
