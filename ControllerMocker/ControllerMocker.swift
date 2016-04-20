@@ -107,8 +107,13 @@ public class ControllerMocker {
     
     private func presentPreviousViewController(sender: ControllerMockerButton? = nil) {
         
-        if self.numberOfPusherControllers < 0 {
-            let controller = self.controllers[(self.numberOfPusherControllers - 1)]
+        print("NUM OF PUSHED: \(self.numberOfPusherControllers)")
+        
+        if self.numberOfPusherControllers < 1 {
+            print("INDEX TO PUSH: \(self.numberOfPusherControllers - 2)")
+            
+            
+            let controller = self.controllers[(self.numberOfPusherControllers - 2)]
             
             self.presentGivenViewController(sender, controller: controller)
             
