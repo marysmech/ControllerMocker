@@ -21,6 +21,7 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
         else {
             let leftX = 0 - (self.buttonProperties.width + self.buttonProperties.visibleOffset)
             
+            print("WIDTH: \(self.buttonProperties.width)")
             print("LEFTX: \(leftX)")
             
             let centerY = ((keyWindow?.frame.height)! - (self.buttonProperties.height/2))/2
