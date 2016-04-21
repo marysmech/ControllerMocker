@@ -119,4 +119,15 @@ class ControllerMockerButton: UIButton {
     func showButton(moveOffset: CGFloat) {
         fatalError("Missing implementation.")
     }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            print("SHAKEEE")
+        }
+    }
+    
 }
