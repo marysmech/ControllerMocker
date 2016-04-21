@@ -125,16 +125,22 @@ public class ControllerMocker {
     
     private func showPreviousButtonIfNeeded() {
         print("showPreviousButtonIfNeeded")
+        print("PREV BTN VISIBLE: \(self.uiTestPreviousButton!.buttonIsVisible)")
         print(self.numberOfPusherControllers)
         if self.numberOfPusherControllers > 1 {
-            if let prevButton = self.uiTestPreviousButton {
-                print("unwrapperd")
-                print("VISIBLE: \(prevButton.buttonIsVisible)")
-                if !prevButton.buttonIsVisible {
-                    print("showPreviousButtonIfNeeded")
-                    prevButton.showHideNextStepButton()
-                }
+            
+            if !(self.uiTestPreviousButton!.buttonIsVisible) {
+                self.uiTestPreviousButton?.showHideNextStepButton()
             }
+            
+//            if let prevButton = self.uiTestPreviousButton {
+//                print("unwrapperd")
+//                print("VISIBLE: \(prevButton.buttonIsVisible)")
+//                if !prevButton.buttonIsVisible {
+//                    print("showPreviousButtonIfNeeded")
+//                    prevButton.showHideNextStepButton()
+//                }
+//            }
         }
     }
     
