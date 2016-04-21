@@ -62,6 +62,12 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
     
     
     override func hideButton(moveOffset: CGFloat) {
+        print("HIDE BUTTON")
+        print("CENTER.X: \(self.center.x)")
+        print("MOVEOFFSET: \(moveOffset)")
+        print("RES: \(self.center.x - moveOffset)")
+        
+        
         UIView.animateWithDuration(0.3,
             animations: { _ in
                 self.center.x = self.center.x - moveOffset
@@ -75,6 +81,12 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
     
     
     override func showButton(moveOffset: CGFloat) {
+        print("SHOW BUTTON")
+        print("CENTER.X: \(self.center.x)")
+        print("MOVEOFFSET: \(moveOffset)")
+        print("RES: \(self.center.x + moveOffset)")
+        
+        
         UIView.animateWithDuration(0.3,
             animations: { _ in
                 self.center.x = self.center.x + moveOffset
