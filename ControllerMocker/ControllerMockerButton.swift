@@ -79,11 +79,17 @@ class ControllerMockerButton: UIButton {
         
         print(buttonIsVisible)
         
-        if buttonIsVisible {
-            self.hideButton(moveOffset)
+        if !self.isLocked() {
+            print("UNLOCKED")
+            if buttonIsVisible {
+                self.hideButton(moveOffset)
+            }
+            else {
+                self.showButton(moveOffset)
+            }
         }
         else {
-            self.showButton(moveOffset)
+            print("LOCKED - do nothing")
         }
     }
     
