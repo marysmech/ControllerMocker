@@ -184,12 +184,8 @@ public class ControllerMocker {
     }
     
     func showPreviewOfAllMockedControllers() {
-//        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
         let alert = UIAlertController()
         alert.title = "Mocked Controllers"
-        
-//        var message = ""
-        
         var message = NSMutableAttributedString(string: "")
         
         var cnt = 0
@@ -200,29 +196,20 @@ public class ControllerMocker {
             
             if cnt == (self.numberOfPusherControllers - 1) {
                 let activeControllerString = NSAttributedString(string: "\(className) \n", attributes: [
+                    NSFontAttributeName : UIFont.systemFontOfSize(12),
                     NSForegroundColorAttributeName: UIColor.redColor()
                 ])
-                
-                
-                
-//                let attrString = NSMutableAttributedString(string: "\(className) \n")
-//                attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSRangeFromString(className))
-////                message += "\(attrString) \n"
-//                
-//                
+
                 message.appendAttributedString(activeControllerString)
             }
             else {
                 message.appendAttributedString(NSAttributedString(string: "\(className) \n"))
-//            message += "\(className) \n"
             }
             
             cnt++
         }
         
         alert.setValue(message, forKey: "attributedMessage")
-        
-//        alert.message = message
         
         alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default) { action in
             // load back previous controller
