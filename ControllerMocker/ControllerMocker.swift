@@ -133,7 +133,7 @@ public class ControllerMocker {
     }
     
     
-    private func presentGivenViewController(sender: ControllerMockerButton?, controller: UIViewController, completion: (() -> Void)) {
+    private func presentGivenViewController(sender: ControllerMockerButton?, controller: UIViewController, completion: (() -> Void)?) {
         // dismiss previous modal
         self.mainController.dismissViewControllerAnimated(true, completion: nil)
         
@@ -190,6 +190,14 @@ public class ControllerMocker {
         alert.message = "XXX"
         
         alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
+        
+        self.presentGivenViewController(nil, controller: alert) {
+            // load back previous controller
+            let controller = self.controllers[(self.numberOfPusherControllers - 1)]
+            self.presentGivenViewController(nil, controller: controller, completion: nil)
+        }
+        
+        
         self.mainController.presentViewController(alert, animated: true, completion: nil)
     }
     
