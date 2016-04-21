@@ -82,15 +82,17 @@ public class ControllerMocker {
             print("IF")
             let controller = self.controllers[self.numberOfPusherControllers]
             
-            self.presentGivenViewController(sender, controller: controller)
-            
-            self.numberOfPusherControllers++
-            self.showPreviousButtonIfNeeded()
-            
-            if self.numberOfPusherControllers >= self.controllers.count {
-                print("LOCK NEXT")
-                self.uiTestNextButton?.lockButton()
+            self.presentGivenViewController(sender, controller: controller) {
+                self.numberOfPusherControllers++
+                self.showPreviousButtonIfNeeded()
+                
+                if self.numberOfPusherControllers >= self.controllers.count {
+                    print("LOCK NEXT")
+                    self.uiTestNextButton?.lockButton()
+                }
             }
+            
+            
         }
 //        else {
 //            print("ELSE")
@@ -107,16 +109,15 @@ public class ControllerMocker {
             print("IF")
             let controller = self.controllers[(self.numberOfPusherControllers - 2)]
             
-            self.presentGivenViewController(sender, controller: controller)
-            
-            self.numberOfPusherControllers--
-            self.unlockNextButtonIfNeeded()
-            
-            if (self.numberOfPusherControllers <= 1) {
-                print("LOCK PREV")
-                self.uiTestPreviousButton?.lockButton()
+            self.presentGivenViewController(sender, controller: controller) {
+                self.numberOfPusherControllers--
+                self.unlockNextButtonIfNeeded()
+                
+                if (self.numberOfPusherControllers <= 1) {
+                    print("LOCK PREV")
+                    self.uiTestPreviousButton?.lockButton()
+                }
             }
-            
         }
 //        else {
 //            print("ELSE")
@@ -125,14 +126,17 @@ public class ControllerMocker {
     }
     
     
-    private func presentGivenViewController(sender: ControllerMockerButton?, controller: UIViewController) {
+    private func presentGivenViewController(sender: ControllerMockerButton?, controller: UIViewController, completion: (() -> Void)) {
         // dismiss previous modal
         self.mainController.dismissViewControllerAnimated(true, completion: nil)
         
         // present new controller in modal
-        self.mainController.presentViewController(controller, animated: true) {
-            sender?.showHideNextStepButton()
-        }
+        self.mainController.presentViewController(controller, animated: true, completion: completion)
+        
+        
+//        self.mainController.presentViewController(controller, animated: true) {
+//            sender?.showHideNextStepButton()
+//        }
     }
     
     
