@@ -39,6 +39,17 @@ class ControllerMockerButton: UIButton {
     
     func longPressed(sender: UILongPressGestureRecognizer) {
         print("longpressed")
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            print("BEGIIN")
+        }
+        else {
+            if (sender.state == UIGestureRecognizerState.Cancelled
+                || sender.state == UIGestureRecognizerState.Failed
+                || sender.state == UIGestureRecognizerState.Ended) {
+                print("END")
+            }
+        }
     }
     
     
