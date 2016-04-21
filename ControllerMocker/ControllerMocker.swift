@@ -199,12 +199,18 @@ public class ControllerMocker {
             print(className)
             
             if cnt == (self.numberOfPusherControllers - 1) {
-                let attrString = NSMutableAttributedString(string: "\(className) \n")
-                attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSRangeFromString(className))
-//                message += "\(attrString) \n"
+                let activeControllerString = NSAttributedString(string: "\(className) \n", attributes: [
+                    NSForegroundColorAttributeName: UIColor.redColor()
+                ])
                 
                 
-                message.appendAttributedString(attrString)
+                
+//                let attrString = NSMutableAttributedString(string: "\(className) \n")
+//                attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSRangeFromString(className))
+////                message += "\(attrString) \n"
+//                
+//                
+                message.appendAttributedString(activeControllerString)
             }
             else {
                 message.appendAttributedString(NSAttributedString(string: "\(className) \n"))
