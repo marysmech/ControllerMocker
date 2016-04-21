@@ -87,7 +87,7 @@ public class ControllerMocker {
             self.numberOfPusherControllers++
             self.showPreviousButtonIfNeeded()
             
-            if self.numberOfPusherControllers < self.controllers.count {
+            if self.numberOfPusherControllers >= self.controllers.count {
                 print("LOCK NEXT")
                 self.uiTestNextButton?.lockButton()
             }
@@ -112,7 +112,7 @@ public class ControllerMocker {
             self.numberOfPusherControllers--
             self.unlockNextButtonIfNeeded()
             
-            if (self.numberOfPusherControllers > 1) {
+            if (self.numberOfPusherControllers <= 1) {
                 print("LOCK PREV")
                 self.uiTestPreviousButton?.lockButton()
             }
