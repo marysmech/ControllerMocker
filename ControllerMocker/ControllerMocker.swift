@@ -198,7 +198,7 @@ public class ControllerMocker {
         }
         
         
-        self.mainController.presentViewController(alert, animated: true, completion: nil)
+//        self.mainController.presentViewController(alert, animated: true, completion: nil)
     }
     
     
