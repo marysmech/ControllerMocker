@@ -38,6 +38,7 @@ public class ControllerMocker {
         
         self.uiTestPreviousButton = ControllerMockerButtonPrevious(keyWindow: currentWindow)
         self.uiTestPreviousButton?.controllerMockerDelegate = self
+        self.uiTestPreviousButton?.showHideNextStepButton()
         currentWindow.addSubview(self.uiTestPreviousButton!)
         
         self.presentNextViewController()
@@ -74,8 +75,10 @@ public class ControllerMocker {
     
     
     private func presentNextViewController(sender: ControllerMockerButton? = nil) {
+        print("PUSHED: \(self.numberOfPusherControllers)")
         
         if self.numberOfPusherControllers < self.controllers.count {
+            print("IF")
             let controller = self.controllers[self.numberOfPusherControllers]
             
             self.presentGivenViewController(sender, controller: controller)
@@ -84,13 +87,18 @@ public class ControllerMocker {
             self.showPreviousButtonIfNeeded()
         }
         else {
+            print("ELSE")
             self.uiTestNextButton?.showHideNextStepButton()
         }
     }
     
     
     private func presentPreviousViewController(sender: ControllerMockerButton? = nil) {
+        print("PUSHED: \(self.numberOfPusherControllers)")
+        
+        
         if self.numberOfPusherControllers > 1 {
+            print("IF")
             let controller = self.controllers[(self.numberOfPusherControllers - 2)]
             
             self.presentGivenViewController(sender, controller: controller)
@@ -98,6 +106,7 @@ public class ControllerMocker {
             self.numberOfPusherControllers--
         }
         else {
+            print("ELSE")
             self.uiTestPreviousButton?.showHideNextStepButton()
         }
     }
@@ -115,9 +124,14 @@ public class ControllerMocker {
     
     
     private func showPreviousButtonIfNeeded() {
+        print("showPreviousButtonIfNeeded")
+        print(self.numberOfPusherControllers)
         if self.numberOfPusherControllers > 1 {
             if let prevButton = self.uiTestPreviousButton {
+                print("unwrapperd")
+                print("VISIBLE: \(prevButton.buttonIsVisible)")
                 if !prevButton.buttonIsVisible {
+                    print("showPreviousButtonIfNeeded")
                     prevButton.showHideNextStepButton()
                 }
             }
