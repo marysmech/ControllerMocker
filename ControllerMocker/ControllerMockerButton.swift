@@ -42,12 +42,14 @@ class ControllerMockerButton: UIButton {
         
         if sender.state == UIGestureRecognizerState.Began {
             print("BEGIIN")
+            self.controllerMockerDelegate?.hideAllButtons()
         }
         else {
             if (sender.state == UIGestureRecognizerState.Cancelled
                 || sender.state == UIGestureRecognizerState.Failed
                 || sender.state == UIGestureRecognizerState.Ended) {
                 print("END")
+                self.controllerMockerDelegate?.showAllButtons()
             }
         }
     }
@@ -126,6 +128,14 @@ class ControllerMockerButton: UIButton {
         }
         
         return true
+    }
+    
+    func hide() {
+        self.hidden = true
+    }
+    
+    func show() {
+        self.hidden = false
     }
     
     func hideButton(moveOffset: CGFloat) {

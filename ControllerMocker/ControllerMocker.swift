@@ -18,6 +18,7 @@ public class ControllerMocker {
     var uiTestPreviousButton: ControllerMockerButton?
     var numberOfPusherControllers: Int = 0
     var controllers = [UIViewController]()
+    var uiButtons: [ControllerMockerButton]?
     
     
     public init(window: UIWindow) {
@@ -40,6 +41,8 @@ public class ControllerMocker {
         self.uiTestPreviousButton?.controllerMockerDelegate = self
 //        self.uiTestPreviousButton?.showHideNextStepButton()
         currentWindow.addSubview(self.uiTestPreviousButton!)
+        
+        self.uiButtons = [self.uiTestNextButton!, self.uiTestPreviousButton!]
         
         self.presentNextViewController()
     }
@@ -167,6 +170,16 @@ public class ControllerMocker {
         }
     }
     
+    func hideAllButtons() {
+        for button in self.uiButtons! {
+            button.hide()
+        }
+    }
     
     
+    func showAllButtons() {
+        for button in self.uiButtons! {
+            button.show()
+        }
+    }
 }
