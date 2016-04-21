@@ -38,17 +38,15 @@ class ControllerMockerButton: UIButton {
     }
     
     func longPressed(sender: UILongPressGestureRecognizer) {
-        print("longpressed")
-        
         if sender.state == UIGestureRecognizerState.Began {
-            print("BEGIIN")
+            // begin of long press
             self.controllerMockerDelegate?.hideAllButtons()
         }
         else {
             if (sender.state == UIGestureRecognizerState.Cancelled
                 || sender.state == UIGestureRecognizerState.Failed
                 || sender.state == UIGestureRecognizerState.Ended) {
-                print("END")
+                // end of long press
                 self.controllerMockerDelegate?.showAllButtons()
             }
         }
@@ -56,13 +54,11 @@ class ControllerMockerButton: UIButton {
     
     
     func doubleTapped() {
-        print("double tapped")
         self.controllerMockerDelegate?.showPreviewOfAllMockedControllers()
     }
     
     
     internal func stepClick(sender: ControllerMockerButton!) {
-        print("NEXT@@")
         self.showHideNextStepButton()
         
         controllerMockerDelegate?.showNextController(self)
@@ -102,19 +98,13 @@ class ControllerMockerButton: UIButton {
     internal func showHideNextStepButton() {
         let moveOffset = getMoveOffset()
         
-        print(buttonIsVisible)
-        
         if !self.isLocked() {
-            print("UNLOCKED")
             if buttonIsVisible {
                 self.hideButton(moveOffset)
             }
             else {
                 self.showButton(moveOffset)
             }
-        }
-        else {
-            print("LOCKED - do nothing")
         }
     }
     
