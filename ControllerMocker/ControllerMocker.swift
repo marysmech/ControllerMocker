@@ -85,7 +85,7 @@ public class ControllerMocker {
             print("IF")
             let controller = self.controllers[self.numberOfPusherControllers]
             
-            self.presentGivenViewController(sender, controller: controller) {
+            self.presentGivenViewController(controller) {
                 sender?.showHideNextStepButton()
                 
                 self.numberOfPusherControllers++
@@ -114,7 +114,7 @@ public class ControllerMocker {
             print("IF")
             let controller = self.controllers[(self.numberOfPusherControllers - 2)]
             
-            self.presentGivenViewController(sender, controller: controller) {
+            self.presentGivenViewController(controller) {
                 sender?.showHideNextStepButton()
                 
                 self.numberOfPusherControllers--
@@ -133,12 +133,12 @@ public class ControllerMocker {
     }
     
     
-    private func presentGivenViewController(sender: ControllerMockerButton?, controller: UIViewController, completion: (() -> Void)?) {
+    private func presentGivenViewController(controller: UIViewController, animated: Bool = true,  completion: (() -> Void)?) {
         // dismiss previous modal
-        self.mainController.dismissViewControllerAnimated(true, completion: nil)
+        self.mainController.dismissViewControllerAnimated(animated, completion: nil)
         
         // present new controller in modal
-        self.mainController.presentViewController(controller, animated: true, completion: completion)
+        self.mainController.presentViewController(controller, animated: animated, completion: completion)
         
         
 //        self.mainController.presentViewController(controller, animated: true) {
@@ -186,7 +186,7 @@ public class ControllerMocker {
     func showPreviewOfAllMockedControllers() {
         let alert = UIAlertController()
         alert.title = "Mocked Controllers"
-        var message = NSMutableAttributedString(string: "")
+        let message = NSMutableAttributedString(string: "")
         
         var cnt = 0
         for controller in self.controllers {
@@ -217,9 +217,9 @@ public class ControllerMocker {
         alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default) { action in
             // load back previous controller
             let controller = self.controllers[(self.numberOfPusherControllers - 1)]
-            self.presentGivenViewController(nil, controller: controller, completion: nil)
+            self.presentGivenViewController(controller, animated: false, completion: nil)
         })
         
-        self.presentGivenViewController(nil, controller: alert, completion: nil)
+        self.presentGivenViewController(alert, animated: false, completion: nil)
     }
 }
