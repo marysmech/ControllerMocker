@@ -192,18 +192,21 @@ public class ControllerMocker {
         for controller in self.controllers {
             var className = NSStringFromClass(controller.dynamicType)
             className = className.componentsSeparatedByString(".").last!
-            print(className)
             
             if cnt == (self.numberOfPusherControllers - 1) {
                 let activeControllerString = NSAttributedString(string: "\(className) \n", attributes: [
-                    NSFontAttributeName : UIFont.systemFontOfSize(12),
+                    NSFontAttributeName: UIFont.systemFontOfSize(13),
                     NSForegroundColorAttributeName: UIColor.redColor()
                 ])
 
                 message.appendAttributedString(activeControllerString)
             }
             else {
-                message.appendAttributedString(NSAttributedString(string: "\(className) \n"))
+                message.appendAttributedString(
+                    NSAttributedString(string: "\(className) \n", attributes: [
+                        NSFontAttributeName: UIFont.systemFontOfSize(12),
+                    ])
+                )
             }
             
             cnt++
