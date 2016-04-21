@@ -187,7 +187,15 @@ public class ControllerMocker {
 //        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
         let alert = UIAlertController()
         alert.title = "Mocked Controllers"
-        alert.message = "XXX"
+        
+        for controller in self.controllers {
+            let className = NSStringFromClass(controller.dynamicType)
+            print(className)
+            alert.message = "\(className) \n"
+        }
+        
+        
+//        alert.message = "XXX"
         
         alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default) { action in
             // load back previous controller
