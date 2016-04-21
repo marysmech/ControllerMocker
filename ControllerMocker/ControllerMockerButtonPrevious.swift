@@ -46,7 +46,7 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
     
     
     override func updateButtonPosition() {
-        let leftX = 0 as CGFloat
+        let leftX = self.buttonProperties.width/2
         
         print("UPDATE LEFTX: \(leftX)")
         
