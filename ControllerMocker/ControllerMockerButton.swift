@@ -131,11 +131,25 @@ class ControllerMockerButton: UIButton {
     }
     
     func hide() {
-        self.hidden = true
+        UIView.animateWithDuration(0.5,
+            animations: { _ in
+                self.alpha = 0
+            },
+            completion: { finished in
+                self.hidden = true
+            }
+        )
     }
     
     func show() {
-        self.hidden = false
+        UIView.animateWithDuration(0.5,
+            animations: { _ in
+                self.alpha = 1
+            },
+            completion: { finished in
+                self.hidden = false
+            }
+        )
     }
     
     func hideButton(moveOffset: CGFloat) {
