@@ -57,7 +57,7 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
     
     
     override func getMoveOffset() -> CGFloat {
-        return self.buttonProperties.visibleOffset
+        return self.buttonProperties.width - self.buttonProperties.visibleOffset
     }
     
     
