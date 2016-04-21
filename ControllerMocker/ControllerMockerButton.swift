@@ -52,6 +52,8 @@ class ControllerMockerButton: UIButton {
         if UIDevice.currentDevice().orientation != self.orientation {
             self.updateButtonPositionAfterOrientationChange()
         }
+        
+        self.becomeFirstResponder()
     }
     
     
@@ -120,6 +122,8 @@ class ControllerMockerButton: UIButton {
         fatalError("Missing implementation.")
     }
     
+    
+    
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
@@ -127,6 +131,9 @@ class ControllerMockerButton: UIButton {
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
             print("SHAKEEE")
+        }
+        else {
+            "******EVEEEENT"
         }
     }
     
