@@ -133,7 +133,7 @@ class ControllerMockerButton: UIButton {
             print("SHAKEEE")
         }
         else {
-            "******EVEEEENT"
+            print("******EVEEEENT")
         }
     }
     
