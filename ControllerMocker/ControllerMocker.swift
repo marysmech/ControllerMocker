@@ -23,6 +23,7 @@ public class ControllerMocker {
     
     public init(window: UIWindow) {
         self.currentWindow = window
+        self.currentWindow.backgroundColor = UIColor.whiteColor()
         self.mainController = UINavigationController()
         currentWindow.rootViewController = self.mainController
     }
