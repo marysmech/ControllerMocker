@@ -30,6 +30,9 @@ class ControllerMockerButtonNext: ControllerMockerButton, ControllerMockerButton
         self.backgroundColor = self.buttonProperties.normalBackgroundColor
         self.alpha = self.buttonProperties.clickAlpha
         self.addTarget(self, action: "stepClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressed:")
+        self.addGestureRecognizer(longPressRecognizer)
     }
     
     

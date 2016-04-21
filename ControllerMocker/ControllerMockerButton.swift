@@ -37,6 +37,10 @@ class ControllerMockerButton: UIButton {
         fatalError("Missing implementation.")
     }
     
+    func longPressed(sender: UILongPressGestureRecognizer) {
+        print("longpressed")
+    }
+    
     
     internal func stepClick(sender: ControllerMockerButton!) {
         print("NEXT@@")
@@ -120,21 +124,6 @@ class ControllerMockerButton: UIButton {
     
     func showButton(moveOffset: CGFloat) {
         fatalError("Missing implementation.")
-    }
-    
-    
-    
-    override func canBecomeFirstResponder() -> Bool {
-        return true
-    }
-    
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
-            print("SHAKEEE")
-        }
-        else {
-            print("******EVEEEENT")
-        }
     }
     
 }
