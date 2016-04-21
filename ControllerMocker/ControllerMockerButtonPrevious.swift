@@ -20,10 +20,6 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
         }
         else {
             let leftX = 0 - (self.buttonProperties.width - self.buttonProperties.visibleOffset)
-            
-            print("WIDTH: \(self.buttonProperties.width)")
-            print("LEFTX: \(leftX)")
-            
             let centerY = ((keyWindow?.frame.height)! - (self.buttonProperties.height/2))/2
             button = CGRect(x: leftX, y: centerY, width: self.buttonProperties.width, height: self.buttonProperties.height)
         }
@@ -41,7 +37,6 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
     
     
     internal override func stepClick(sender: ControllerMockerButton!) {
-        print("PREV@@")
         self.showHideNextStepButton()
         
         controllerMockerDelegate?.showPreviousController(self)
@@ -50,9 +45,6 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
     
     override func updateButtonPosition() {
         let leftX = self.buttonProperties.width/2
-        
-        print("UPDATE LEFTX: \(leftX)")
-        
         let centerY = ((superview!.frame.height) - (self.buttonProperties.height/2))/2
         self.center.x = leftX
         self.center.y = centerY
@@ -65,12 +57,6 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
     
     
     override func hideButton(moveOffset: CGFloat) {
-        print("HIDE BUTTON")
-        print("CENTER.X: \(self.center.x)")
-        print("MOVEOFFSET: \(moveOffset)")
-        print("RES: \(self.center.x - moveOffset)")
-        
-        
         UIView.animateWithDuration(0.3,
             animations: { _ in
                 self.center.x = self.center.x - moveOffset
@@ -84,12 +70,6 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
     
     
     override func showButton(moveOffset: CGFloat) {
-        print("SHOW BUTTON")
-        print("CENTER.X: \(self.center.x)")
-        print("MOVEOFFSET: \(moveOffset)")
-        print("RES: \(self.center.x + moveOffset)")
-        
-        
         UIView.animateWithDuration(0.3,
             animations: { _ in
                 self.center.x = self.center.x + moveOffset

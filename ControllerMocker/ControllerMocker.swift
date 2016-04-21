@@ -40,7 +40,6 @@ public class ControllerMocker {
         
         self.uiTestPreviousButton = ControllerMockerButtonPrevious(keyWindow: currentWindow)
         self.uiTestPreviousButton?.controllerMockerDelegate = self
-//        self.uiTestPreviousButton?.showHideNextStepButton()
         currentWindow.addSubview(self.uiTestPreviousButton!)
         
         self.uiButtons = [self.uiTestNextButton!, self.uiTestPreviousButton!]
@@ -64,26 +63,19 @@ public class ControllerMocker {
     
     
     func showNextController(sender: ControllerMockerButton) {
-        print("####tapped NEXT!!!")
-        
         // present another controller in modal
         self.presentNextViewController(sender)
     }
     
     
     func showPreviousController(sender: ControllerMockerButton) {
-        print("####tapped PREV!!!")
-        
         // present another controller in modal
         self.presentPreviousViewController(sender)
     }
     
     
     private func presentNextViewController(sender: ControllerMockerButton? = nil) {
-        print("PUSHED: \(self.numberOfPusherControllers)")
-        
         if self.numberOfPusherControllers < self.controllers.count {
-            print("IF")
             let controller = self.controllers[self.numberOfPusherControllers]
             
             self.presentGivenViewController(controller) {
@@ -93,26 +85,15 @@ public class ControllerMocker {
                 self.showPreviousButtonIfNeeded()
                 
                 if self.numberOfPusherControllers >= self.controllers.count {
-                    print("LOCK NEXT")
                     self.uiTestNextButton?.lockButton()
                 }
             }
-            
-            
         }
-//        else {
-//            print("ELSE")
-//            self.uiTestNextButton?.lockButton()
-//        }
     }
     
     
     private func presentPreviousViewController(sender: ControllerMockerButton? = nil) {
-        print("PUSHED: \(self.numberOfPusherControllers)")
-        
-        
         if self.numberOfPusherControllers > 1 {
-            print("IF")
             let controller = self.controllers[(self.numberOfPusherControllers - 2)]
             
             self.presentGivenViewController(controller) {
@@ -122,15 +103,10 @@ public class ControllerMocker {
                 self.unlockNextButtonIfNeeded()
                 
                 if (self.numberOfPusherControllers <= 1) {
-                    print("LOCK PREV")
                     self.uiTestPreviousButton?.lockButton()
                 }
             }
         }
-//        else {
-//            print("ELSE")
-//            self.uiTestPreviousButton?.lockButton()
-//        }
     }
     
     
@@ -140,18 +116,10 @@ public class ControllerMocker {
         
         // present new controller in modal
         self.mainController.presentViewController(controller, animated: animated, completion: completion)
-        
-        
-//        self.mainController.presentViewController(controller, animated: true) {
-//            sender?.showHideNextStepButton()
-//        }
     }
     
     
     private func showPreviousButtonIfNeeded() {
-        print("showPreviousButtonIfNeeded")
-        print("PREV BTN VISIBLE: \(self.uiTestPreviousButton!.buttonIsVisible)")
-        print(self.numberOfPusherControllers)
         if self.numberOfPusherControllers > 1 {
             if !(self.uiTestPreviousButton!.buttonIsVisible) {
                 self.uiTestPreviousButton?.showHideNextStepButton()

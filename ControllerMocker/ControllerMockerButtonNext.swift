@@ -41,7 +41,6 @@ class ControllerMockerButtonNext: ControllerMockerButton, ControllerMockerButton
     
     
     internal override func stepClick(sender: ControllerMockerButton!) {
-        print("NEXT@@")
         self.showHideNextStepButton()
         
         controllerMockerDelegate?.showNextController(self)
