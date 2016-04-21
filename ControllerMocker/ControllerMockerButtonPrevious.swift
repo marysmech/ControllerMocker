@@ -20,6 +20,9 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
         }
         else {
             let leftX = 0 - (self.buttonProperties.width + self.buttonProperties.visibleOffset)
+            
+            print("LEFTX: \(leftX)")
+            
             let centerY = ((keyWindow?.frame.height)! - (self.buttonProperties.height/2))/2
             button = CGRect(x: leftX, y: centerY, width: self.buttonProperties.width, height: self.buttonProperties.height)
         }
@@ -43,6 +46,9 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
     
     override func updateButtonPosition() {
         let leftX = 0 + self.buttonProperties.width
+        
+        print("UPDATE LEFTX: \(leftX)")
+        
         let centerY = ((superview!.frame.height) - (self.buttonProperties.height/2))/2
         self.center.x = leftX
         self.center.y = centerY
