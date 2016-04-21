@@ -86,11 +86,16 @@ public class ControllerMocker {
             
             self.numberOfPusherControllers++
             self.showPreviousButtonIfNeeded()
+            
+            if self.numberOfPusherControllers < self.controllers.count {
+                print("LOCK NEXT")
+                self.uiTestNextButton?.lockButton()
+            }
         }
-        else {
-            print("ELSE")
-            self.uiTestNextButton?.lockButton()
-        }
+//        else {
+//            print("ELSE")
+//            self.uiTestNextButton?.lockButton()
+//        }
     }
     
     
@@ -106,11 +111,17 @@ public class ControllerMocker {
             
             self.numberOfPusherControllers--
             self.unlockNextButtonIfNeeded()
+            
+            if (self.numberOfPusherControllers > 1) {
+                print("LOCK PREV")
+                self.uiTestPreviousButton?.lockButton()
+            }
+            
         }
-        else {
-            print("ELSE")
-            self.uiTestPreviousButton?.lockButton()
-        }
+//        else {
+//            print("ELSE")
+//            self.uiTestPreviousButton?.lockButton()
+//        }
     }
     
     
