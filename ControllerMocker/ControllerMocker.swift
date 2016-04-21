@@ -66,6 +66,7 @@ public class ControllerMocker {
         self.presentNextViewController(sender)
     }
     
+    
     func showPreviousController(sender: ControllerMockerButton) {
         print("####tapped PREV!!!")
         
@@ -88,7 +89,7 @@ public class ControllerMocker {
         }
         else {
             print("ELSE")
-            self.uiTestNextButton?.showHideNextStepButton()
+            self.uiTestNextButton?.lockButton()
         }
     }
     
@@ -104,10 +105,11 @@ public class ControllerMocker {
             self.presentGivenViewController(sender, controller: controller)
             
             self.numberOfPusherControllers--
+            self.unlockNextButtonIfNeeded()
         }
         else {
             print("ELSE")
-            self.uiTestPreviousButton?.showHideNextStepButton()
+            self.uiTestPreviousButton?.lockButton()
         }
     }
     
@@ -128,19 +130,21 @@ public class ControllerMocker {
         print("PREV BTN VISIBLE: \(self.uiTestPreviousButton!.buttonIsVisible)")
         print(self.numberOfPusherControllers)
         if self.numberOfPusherControllers > 1 {
-            
             if !(self.uiTestPreviousButton!.buttonIsVisible) {
                 self.uiTestPreviousButton?.showHideNextStepButton()
             }
-            
-//            if let prevButton = self.uiTestPreviousButton {
-//                print("unwrapperd")
-//                print("VISIBLE: \(prevButton.buttonIsVisible)")
-//                if !prevButton.buttonIsVisible {
-//                    print("showPreviousButtonIfNeeded")
-//                    prevButton.showHideNextStepButton()
-//                }
-//            }
+            else if self.uiTestPreviousButton!.isLocked() {
+                self.uiTestPreviousButton?.unlockButton()
+            }
+        }
+    }
+    
+    
+    private func unlockNextButtonIfNeeded() {
+        if self.numberOfPusherControllers < self.controllers.count {
+            if self.uiTestNextButton!.isLocked() {
+                self.uiTestNextButton!.unlockButton()
+            }
         }
     }
     

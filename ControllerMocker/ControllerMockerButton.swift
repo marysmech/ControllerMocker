@@ -87,6 +87,23 @@ class ControllerMockerButton: UIButton {
         }
     }
     
+    func lockButton() {
+        self.enabled = false
+        self.alpha = self.buttonProperties.clickAlpha
+    }
+    
+    func unlockButton() {
+        self.enabled = true
+        self.alpha = 1
+    }
+    
+    func isLocked() -> Bool {
+        if self.enabled {
+            return false
+        }
+        
+        return true
+    }
     
     func hideButton(moveOffset: CGFloat) {
         fatalError("Missing implementation.")
