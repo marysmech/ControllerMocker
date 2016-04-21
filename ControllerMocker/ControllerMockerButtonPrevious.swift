@@ -19,7 +19,7 @@ class ControllerMockerButtonPrevious: ControllerMockerButton, ControllerMockerBu
             button = buttonPosition
         }
         else {
-            let leftX = 0 - (self.buttonProperties.width + self.buttonProperties.visibleOffset)
+            let leftX = 0 - (self.buttonProperties.width - self.buttonProperties.visibleOffset)
             
             print("WIDTH: \(self.buttonProperties.width)")
             print("LEFTX: \(leftX)")
