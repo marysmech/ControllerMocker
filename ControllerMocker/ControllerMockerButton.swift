@@ -57,6 +57,7 @@ class ControllerMockerButton: UIButton {
     
     func doubleTapped() {
         print("double tapped")
+        self.controllerMockerDelegate?.showPreviewOfAllMockedControllers()
     }
     
     

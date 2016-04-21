@@ -182,4 +182,16 @@ public class ControllerMocker {
             button.show()
         }
     }
+    
+    func showPreviewOfAllMockedControllers() {
+//        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController()
+        alert.title = "Mocked Controllers"
+        alert.message = "XXX"
+        
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
+        self.mainController.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
 }
