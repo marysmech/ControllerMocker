@@ -33,6 +33,10 @@ class ControllerMockerButtonNext: ControllerMockerButton, ControllerMockerButton
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressed:")
         self.addGestureRecognizer(longPressRecognizer)
+        
+        let doubleTappedRecognizer = UITapGestureRecognizer(target: self, action: "doubleTapped")
+        doubleTappedRecognizer.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTappedRecognizer)
     }
     
     

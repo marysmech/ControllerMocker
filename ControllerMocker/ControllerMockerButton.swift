@@ -55,6 +55,11 @@ class ControllerMockerButton: UIButton {
     }
     
     
+    func doubleTapped() {
+        print("double tapped")
+    }
+    
+    
     internal func stepClick(sender: ControllerMockerButton!) {
         print("NEXT@@")
         self.showHideNextStepButton()
