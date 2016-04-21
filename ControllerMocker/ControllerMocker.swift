@@ -83,6 +83,8 @@ public class ControllerMocker {
             let controller = self.controllers[self.numberOfPusherControllers]
             
             self.presentGivenViewController(sender, controller: controller) {
+                sender?.showHideNextStepButton()
+                
                 self.numberOfPusherControllers++
                 self.showPreviousButtonIfNeeded()
                 
@@ -110,6 +112,8 @@ public class ControllerMocker {
             let controller = self.controllers[(self.numberOfPusherControllers - 2)]
             
             self.presentGivenViewController(sender, controller: controller) {
+                sender?.showHideNextStepButton()
+                
                 self.numberOfPusherControllers--
                 self.unlockNextButtonIfNeeded()
                 
