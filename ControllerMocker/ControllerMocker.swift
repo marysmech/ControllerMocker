@@ -38,7 +38,7 @@ public class ControllerMocker {
         
         self.uiTestPreviousButton = ControllerMockerButtonPrevious(keyWindow: currentWindow)
         self.uiTestPreviousButton?.controllerMockerDelegate = self
-        self.uiTestPreviousButton?.showHideNextStepButton()
+//        self.uiTestPreviousButton?.showHideNextStepButton()
         currentWindow.addSubview(self.uiTestPreviousButton!)
         
         self.presentNextViewController()
