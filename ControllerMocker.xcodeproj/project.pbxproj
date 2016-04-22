@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6503A3DC1CC9AF0900835B42 /* ControllerMocker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6503A3DB1CC9AF0900835B42 /* ControllerMocker.podspec */; };
 		658B3E411CB858BD002B37F8 /* dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 658B3E401CB858BD002B37F8 /* dummy.png */; };
 		658B3E431CB858D8002B37F8 /* ControllerMockerDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B3E421CB858D8002B37F8 /* ControllerMockerDummy.swift */; };
 		65A07C781CB5C28000803113 /* ControllerMocker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A07C771CB5C28000803113 /* ControllerMocker.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6503A3DB1CC9AF0900835B42 /* ControllerMocker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ControllerMocker.podspec; sourceTree = "<group>"; };
 		658B3E401CB858BD002B37F8 /* dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy.png; sourceTree = "<group>"; };
 		658B3E421CB858D8002B37F8 /* ControllerMockerDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerMockerDummy.swift; sourceTree = "<group>"; };
 		65A07C741CB5C28000803113 /* ControllerMocker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ControllerMocker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 		65A07C6A1CB5C28000803113 = {
 			isa = PBXGroup;
 			children = (
+				6503A3DB1CC9AF0900835B42 /* ControllerMocker.podspec */,
 				65A07C761CB5C28000803113 /* ControllerMocker */,
 				65A07C821CB5C28000803113 /* ControllerMockerTests */,
 				65A07C751CB5C28000803113 /* Products */,
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				658B3E411CB858BD002B37F8 /* dummy.png in Resources */,
+				6503A3DC1CC9AF0900835B42 /* ControllerMocker.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
