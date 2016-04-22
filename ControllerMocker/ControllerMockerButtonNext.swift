@@ -1,8 +1,8 @@
 //
-//  ControllerMockerStepperButton.swift
-//  cdrdiit
+//  ControllerMockerButtonNext.swift
+//  ControllerMocker
 //
-//  Created by Marek Mechura on 06/04/16.
+//  Created by Marek Mechura on 20/04/16.
 //  Copyright © 2016 Marek Mechura. All rights reserved.
 //
 
@@ -10,24 +10,9 @@ import Foundation
 import UIKit
 
 
-class ControllerMockerStepperButton: UIButton {
+class ControllerMockerButtonNext: ControllerMockerButton, ControllerMockerButtonProtocol {
     
-    var buttonIsVisible = false
-    var controllerMockerDelegate: ControllerMocker?
-    var orientation: UIDeviceOrientation = UIDeviceOrientation.Portrait
-    
-    let buttonProperties = (
-        width: 60 as CGFloat,
-        height: 50 as CGFloat,
-        normalBackgroundColor: UIColor.redColor(),
-        activBackgroundColor: UIColor.grayColor(),
-        clickAlpha: 0.1 as CGFloat,
-        visibleOffset: 2 as CGFloat
-    )
-    
-    convenience init(keyWindow: UIWindow?, buttonPosition: CGRect? = nil) {
-        self.init()
-        
+    override func setButtonProperties(keyWindow: UIWindow?, buttonPosition: CGRect?) {
         let button: CGRect
         
         if let buttonPosition = buttonPosition {
@@ -44,55 +29,41 @@ class ControllerMockerStepperButton: UIButton {
         self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.backgroundColor = self.buttonProperties.normalBackgroundColor
         self.alpha = self.buttonProperties.clickAlpha
-        self.addTarget(self, action: "nextStep:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.addTarget(self, action: "stepClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressed:")
+        self.addGestureRecognizer(longPressRecognizer)
+        
+        let doubleTappedRecognizer = UITapGestureRecognizer(target: self, action: "doubleTapped")
+        doubleTappedRecognizer.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTappedRecognizer)
     }
     
     
-    internal func nextStep(sender: ControllerMockerStepperButton!) {
-        print("NEXT@@")
+    internal override func stepClick(sender: ControllerMockerButton!) {
         self.showHideNextStepButton()
         
         controllerMockerDelegate?.showNextController(self)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        if UIDevice.currentDevice().orientation != self.orientation {
-            self.updateButtonPositionAfterOrientationChange()
-        }
-    }
     
-    private func updateButtonPositionAfterOrientationChange() {
-        self.orientation = UIDevice.currentDevice().orientation
-        
+    override func updateButtonPosition() {
         let rightX = (superview!.frame.width) - self.buttonProperties.width
         let centerY = ((superview!.frame.height) - (self.buttonProperties.height/2))/2
         self.center.x = rightX + (self.frame.width/2)
         self.center.y = centerY
-        
-        self.setNeedsDisplay()
     }
     
     
-    internal func showHideNextStepButton() {
-        let moveOffsetX = self.frame.width - self.buttonProperties.visibleOffset
-        
-        print(buttonIsVisible)
-        
-        if buttonIsVisible {
-            self.hideButton(moveOffsetX)
-        }
-        else {
-            self.showButton(moveOffsetX)
-        }
+    override func getMoveOffset() -> CGFloat {
+        return self.frame.width - self.buttonProperties.visibleOffset
     }
     
     
-    private func hideButton(moveOffsetX: CGFloat) {
+    override func hideButton(moveOffset: CGFloat) {
         UIView.animateWithDuration(0.3,
             animations: { _ in
-                self.center.x = self.center.x + moveOffsetX
+                self.center.x = self.center.x + moveOffset
                 self.alpha = self.buttonProperties.clickAlpha
             },
             completion: { finished in
@@ -102,10 +73,10 @@ class ControllerMockerStepperButton: UIButton {
     }
     
     
-    private func showButton(moveOffsetX: CGFloat) {
+    override func showButton(moveOffset: CGFloat) {
         UIView.animateWithDuration(0.3,
             animations: { _ in
-                self.center.x = self.center.x - moveOffsetX
+                self.center.x = self.center.x - moveOffset
                 self.alpha = 1
                 self.backgroundColor = self.buttonProperties.normalBackgroundColor
             },
