@@ -44,3 +44,13 @@ let controllers = [myViewController1 , myViewController2]
 
 AppDelegate.testViewControllers(window!, controllers: controllers)
 ```
+
+## Dummy image
+If you need some image for controller that you want to mock you can use dummy image that is part of ControllerMocker.
+
+Usage of dummy image is:
+
+```swift
+let imgUrl = ControllerMockerDummy.getUrlToDummyImage()
+```
+Method above return local URL to image.
