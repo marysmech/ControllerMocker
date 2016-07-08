@@ -1,6 +1,6 @@
 # ControllerMocker
 
-ControllerMocker is simple tool that allow simply mock and load multiple `ViewController`s. It takes as parametr `array` of `ViewController`s and allows switch among them like in image gallery.
+ControllerMocker is simple tool for iOS that allow simply mock and load multiple `ViewController`s. It takes as parametr `array` of `ViewController`s and allows switch among them like in image gallery.
 
 When ControllerMocker is loaded it shows arrows for switching among mocked controllers. Long press on button hide these buttons and double click show list of mocked controllers.
 
